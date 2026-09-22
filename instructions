@@ -1,0 +1,80 @@
+Goals of the project
+The overarching goal of this project is to enable you to identify and plot the growth rate of several different algorithms. In particular, 
+Implement the recursive algorithm to compute the Fibonacci sequence and determine the growth rate of the recursive algorithm. Thereafter, use the consecutive elements of the Fibonacci sequence to find the growth rate of Euclid's algorithm in the worst-case.
+Implement algorithms related to the problem of exponentiation based on 3 design techniques and compare their growth rates: i) Decrease-by-one, ii) Decrease-by-constant-factor, and iii) Divide-and-Conquer. 
+Implement two sorting algorithms: i) Selection Sort, and ii) Insertion Sort, and compute their growth rate in the best-case, average-case, and worst-case.
+You will write a short report summarizing the outcome of the above tasks in the form of scatter plots.
+
+Important note: When computing the total number of basic operations in any of the algorithms, do not explicitly use any formula (that may have been derived in the class) but simply place a counter corresponding to the basic operation and increment it at the correct place in the code. See the example to compute the number of moves (AND the number of basic operations) in a Tower of Hanoi problem based on two recursive implementationsLinks to an external site..
+
+ 
+
+POLICY on use of GENERATIVE AI
+For this project, Generative AI tools are not permitted except for plotting purposes (see Scatter plot mode, below). All tasks below are for writing simple algorithms and determining their asymptotic time complexity. Therefore, you must be able to code this yourself, including finding the number of basic operations and analyzing the growth-rate graph.
+
+ 
+
+Task 1: Fibonacci Sequence and GCD
+Task 1a: Implement the recursive algorithm Fib(k) to compute the kth Fibonacci Number and compute the corresponding number of additions A(k) employed by the recursive algorithm. 
+
+Produce a scatterplot of A(k) and indicate the algorithm’s asymptotic complexity. Note that A(k) is a function of k; your program must choose different values of k to generate the scatterplot. 
+Task 1b: Compute the worst-case efficiency of Euclid's algorithm to compute GCD. Note that the worst-case inputs for Euclid’s algorithm happen to be the consecutive elements of the Fibonacci sequence (you may store these from Task 1a). So, compute GCD(m, n) where m = Fib(k+1) and n = Fib(k) for several values of k >= 1. 
+
+Produce a scatterplot showing the number of modulo divisions D(n) taken to compute GCD as a function of n and indicate the algorithm’s asymptotic complexity. Note that D(n) is a function of n; your program must choose the different values of n (obtained by choosing different values of k) to generate the scatterplot.
+Consider a log axis, where relevant, to show logarithmic/exponential growth. 
+ 
+Task 2: Exponentiation
+The problem of exponentiation exp(a, n) computes an , where a is a constant. Implement the following algorithms for solving the problem of exponentiation:
+
+i) Decrease-by-one: 
+
+
+ii) Decrease-by-constant-factor:
+
+
+iii) Divide-and-Conquer. 
+
+
+Produce a scatterplot showing the number of multiplications M(n) made by each of the algorithms and indicate their asymptotic complexity. Note that M(n) is a function of n; your program must choose different values of n to generate the scatterplot. You can choose any value of a.
+Consider a log axis, where relevant, to show logarithmic/exponential growth. 
+ 
+Task 3: Sorting
+Implement and analyze the complexity of Selection Sort and Insertion Sort (check out this awesome animationLinks to an external site. comparing different sorting algorithms). Run your code on test dataDownload test data that is sorted, random, and reverse sorted, which corresponds to the best case, average case, and worst case, respectively.
+
+Produce a scatterplot showing the number of comparisons C(n) made by each of the algorithms and indicate their asymptotic complexity.  Note that n here is the size of the list (that is being sorted).
+Test dataDownload Test data is provided for the range of n between 100 - 10000 at an increment of 100. A folder called "smallSet" is included to test early iterations of your program on small values of n. However, your scatterplot should be shown for the data in folder "testSet".
+When plotting the number of comparisons, you may use another increment factor of your choice for speed purposes but it must span the entire range. For example, you may increment n by 500 (instead of 100).
+Keep in mind that a distinct scatterplot needs to be computed for each of the best-case, average-case, and worst-case situations.
+ 
+
+Formatting your output in two modes: User testing mode and Scatter plot mode.
+Your program should give choice for the user to enter two modes:
+
+User testing mode: This mode prompts the user for values of certain parameters and returns an output based on the goals of each task:
+Task 1: User is prompted for the value of k; program outputs the value of Fib(k) and GCD(m, n) where m = Fib(k+1) and n = Fib(k) .
+Task 2: User is prompted for the value of a and n.; program outputs the value an using each of the three algorithms.
+Task 3: User is prompted for the size of the list n (between 10 - 100 at an increment of 10), the program loads the appropriate file data{n}.txt from the folder "smallSet" in the test dataDownload test data and outputs the sorted output based on the two algorithms on terminal.
+Scatter plot mode: This mode does NOT prompt the user for any values. It generates a scatter plot for each task, as described in the description of each of the tasks:
+Task 1: Fib(k) for different values of k generated using the recursive algorithm may be stored for this purpose. OR, for sake of speed, you may use an iterative algorithm to compute the Fibonacci sequence once. Use consecutive elements as input to the GCD(m, n) function for computing and plotting D(n). (Think about what should be the upper limit for k and clearly indicate it in your report) 
+Task 2: You may choose any value of the constant a. Compute and plot M(n) for the three different algorithms in the same plot (it will help you to compare them!).
+Task 3: For different sizes of the list n (range 10 - 10000), read data from the folder "testSet" in the test dataDownload test data that is sorted (data{n}_sorted.txt), random (data{n}.txt), and reverse sorted (data{n}_rSorted.txt). Use that data to compute C(n) for each of the two sorting algorithms. Produce three scatter plots that compare the complexity of the two algorithms in i) Best-case, ii) Average-case, and iii) Worst-case.
+For all tasks, consider a log axis where relevant to show logarithmic/exponential growth. It will help you immensely in interpreting the graphs.
+ 
+
+ 
+Formatting your report
+As part of this project, write a short report summarizing the outcomes of each of the three tasks.
+
+Clearly label the x-axis and y-axis of each of the scatter plots, and a legend, wherever applicable (i.e. when plotting multiple graphs in the same figure). 
+Determine the most likely asymptotic complexity from each scatter plot in 
+ notation.
+Comment on your understanding of the differences you observe between the different algorithms in each task. Did the complexity you derived from the scatter plot match that of your prior understanding (from analytically solving the recurrence relations)? Clearly specify what you expected the growth rate to be, and what the outcome was.
+In addition, provide any additional information that may be necessary to understand the plots. For example, as you were plotting the growth rates A(k), D(n), M(n), C(n),  how did you choose the largest value of k?  How did your implementation fare for large values of n?    
+ 
+
+Extra Credit
+Extra credit (+5) will be provided if you get feedback regarding your report from any group and incorporate them into your report. 
+
+Please indicate in your README file the group to whom you gave feedback and the group from which you received feedback.
+Include the feedback that you received, the original report and modified report (that incorporated the feedback) to get full credit
+ 
