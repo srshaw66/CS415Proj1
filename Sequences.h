@@ -1,4 +1,5 @@
 #ifndef SEQUENCES
+#define SEQUENCES
 
 class Sequences {
     public:
