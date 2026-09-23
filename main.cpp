@@ -1,6 +1,11 @@
 #include <iostream>
+#include "Sequences.h"
 
 using namespace std;
+
+Sequences FibonacciSeq;
+Sequences GCDSeq;
+
 
 void runTask1() {
     int k;
@@ -8,9 +13,13 @@ void runTask1() {
     cout << "\nTask 1: Fibonacci Sequence and GCD\n";
     cout << "Enter k: ";
     cin >> k;
+    
+    int fibResult = FibonacciSeq.Fibonacci(k);
+    int gcdResult = GCDSeq.GCD(k, k - 1);
 
     cout << "\nSelected Task 1 with k = " << k << ".\n";
-    cout << "Task 1 execution will be implemented here.\n";
+    cout << "Fibonacci(" << k << ") = " << fibResult << "\n";
+    cout << "GCD(" << k << ", " << k - 1 << ") = " << gcdResult << "\n";
 }
 
 void runTask2() {
