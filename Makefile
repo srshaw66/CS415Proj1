@@ -2,7 +2,7 @@ CXX := g++
 CXXFLAGS := -std=c++17 -Wall -Wextra -pedantic
 
 TARGET := main
-SOURCE := main.cpp
+SOURCE := main.cpp Sequences.cpp Exponentiations.cpp
 
 .PHONY: all run clean
 
