@@ -1,25 +1,40 @@
 #include <iostream>
 #include "Sequences.h"
+#include "Exponentiation.h"
+#include "Sorting.h"
 
 using namespace std;
 
 Sequences FibonacciSeq;
 Sequences GCDSeq;
 
+// Exponentiations decByOneExp;
+// Exponentiations decByConstExp;
+// Exponentiations divConquerExp;
+
+Sorting selSortAlg;
+Sorting inSortAlg;
+
+
 
 void runTask1() {
     int k;
+    int m, n;
 
     cout << "\nTask 1: Fibonacci Sequence and GCD\n";
     cout << "Enter k: ";
     cin >> k;
+
+    cout << "Enter m and n for GCD (m > n): ";
+    
+    cin >> m >> n;
     
     int fibResult = FibonacciSeq.Fibonacci(k);
-    int gcdResult = GCDSeq.GCD(k, k - 1);
+    int gcdResult = GCDSeq.GCD(m, n);
 
     cout << "\nSelected Task 1 with k = " << k << ".\n";
     cout << "Fibonacci(" << k << ") = " << fibResult << "\n";
-    cout << "GCD(" << k << ", " << k - 1 << ") = " << gcdResult << "\n";
+    cout << "GCD(" << m << ", " << n << ") = " << gcdResult << "\n";
 }
 
 void runTask2() {
