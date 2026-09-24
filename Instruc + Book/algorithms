@@ -1,0 +1,109 @@
+ALGORITHMS QUICK LOOKUP
+========================
+
+Transcribed from:
+Introduction to the Design and Analysis of Algorithms, 3rd edition,
+by Anany Levitin.
+
+The pseudocode and formulas below are kept in textbook form. They are not
+translated into C++ or otherwise interpreted.
+
+
+TASK 1: FIBONACCI SEQUENCE AND GCD
+===================================
+
+Recursive Fibonacci
+-------------------
+
+ALGORITHM F(n)
+  //Computes the nth Fibonacci number recursively by using its definition
+  //Input: A nonnegative integer n
+  //Output: The nth Fibonacci number
+  if n <= 1 return n
+  else return F(n-1) + F(n-2)
+
+
+Euclid's Algorithm
+------------------
+
+ALGORITHM Euclid(m,n)
+  //Computes gcd(m,n) by Euclid's algorithm
+  //Input: Two nonnegative, not-both-zero integers m and n
+  //Output: Greatest common divisor of m and n
+  while n != 0 do
+    r <- m mod n
+    m <- n
+    n <- r
+  return m
+
+
+TASK 2: EXPONENTIATION
+======================
+
+The textbook introduces the exponentiation problem as computing a^n for a
+nonzero number a and a nonnegative integer n.
+
+
+Decrease-by-one
+---------------
+
+The textbook gives the following recursive definition:
+
+             { f(n-1) * a       if n > 0,
+  f(n) =     {
+             { 1                if n = 0.
+
+
+Decrease-by-constant-factor
+---------------------------
+
+The textbook gives the following decrease-by-half definition:
+
+             { (a^(n/2))^2             if n is even and positive,
+  a^n =      { (a^((n-1)/2))^2 * a     if n is odd,
+             { 1                       if n = 0.
+
+
+Divide-and-conquer
+------------------
+
+The textbook's divide-and-conquer exponentiation relationship is expressed
+by the same halving step: solve the exponentiation problem for approximately
+half of n, then combine the result by squaring it; for an odd exponent,
+multiply by a once more. The displayed textbook formula is reproduced above
+under "Decrease-by-constant-factor." The textbook does not provide a separate
+named pseudocode listing for this task's divide-and-conquer version.
+
+
+TASK 3: SORTING
+===============
+
+Selection Sort
+--------------
+
+ALGORITHM SelectionSort(A[0..n-1])
+  //Sorts a given array by selection sort
+  //Input: An array A[0..n-1] of orderable elements
+  //Output: Array A[0..n-1] sorted in nondecreasing order
+  for i <- 0 to n-2 do
+    min <- i
+    for j <- i+1 to n-1 do
+      if A[j] < A[min] min <- j
+    swap A[i] and A[min]
+
+
+Insertion Sort
+--------------
+
+ALGORITHM InsertionSort(A[0..n-1])
+  //Sorts a given array by insertion sort
+  //Input: An array A[0..n-1] of n orderable elements
+  //Output: Array A[0..n-1] sorted in nondecreasing order
+  for i <- 1 to n-1 do
+    v <- A[i]
+    j <- i-1
+    while j >= 0 and A[j] > v do
+      A[j+1] <- A[j]
+      j <- j-1
+    A[j+1] <- v
+
