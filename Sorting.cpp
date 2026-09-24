@@ -6,6 +6,16 @@
 using namespace std;
 
 
+// Textbook pseudocode: Selection Sort
+// ALGORITHM SelectionSort(A[0..n-1])
+//   //Sorts a given array by selection sort
+//   //Input: An array A[0..n-1] of orderable elements
+//   //Output: Array A[0..n-1] sorted in nondecreasing order
+//   for i <- 0 to n-2 do
+//     min <- i
+//     for j <- i+1 to n-1 do
+//       if A[j] < A[min] min <- j
+//     swap A[i] and A[min]
 void Sorting::selectionSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         int minIndex = i;
@@ -20,6 +30,18 @@ void Sorting::selectionSort(int arr[], int n) {
 }
 
 // Insertin Sort using swap
+// Textbook pseudocode: Insertion Sort
+// ALGORITHM InsertionSort(A[0..n-1])
+//   //Sorts a given array by insertion sort
+//   //Input: An array A[0..n-1] of n orderable elements
+//   //Output: Array A[0..n-1] sorted in nondecreasing order
+//   for i <- 1 to n-1 do
+//     v <- A[i]
+//     j <- i-1
+//     while j >= 0 and A[j] > v do
+//       A[j+1] <- A[j]
+//       j <- j-1
+//     A[j+1] <- v
 void Sorting::insertionSort(int arr[], int n) {
     for (int i = 1; i < n; i++) {
         for (int j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
