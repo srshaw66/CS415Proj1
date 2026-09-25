@@ -18,23 +18,37 @@ Sorting inSortAlg;
 
 
 void runTask1() {
-    int k;
-    int m, n;
+  int m, n;
+  int k;
 
-    cout << "\nTask 1: Fibonacci Sequence and GCD\n";
-    cout << "Enter k: ";
-    cin >> k;
+  cout << "Task 1: Fibonacci Sequence and GCD" << endl << endl;
+  cout << "Enter k: ";
+  cin >> k;
 
-    cout << "Enter m and n for GCD (m > n): ";
-    
-    cin >> m >> n;
-    
-    int fibResult = FibonacciSeq.Fibonacci(k);
-    int gcdResult = GCDSeq.GCD(m, n);
+  n = FibonacciSeq.Fibonacci(k);
+  int fibCount = FibonacciSeq.getFibCount();
 
-    cout << "\nSelected Task 1 with k = " << k << ".\n";
-    cout << "Fibonacci(" << k << ") = " << fibResult << "\n";
-    cout << "GCD(" << m << ", " << n << ") = " << gcdResult << "\n";
+  m = FibonacciSeq.Fibonacci(k + 1);
+
+  int gcdResult = GCDSeq.GCD(m, n);
+  int gcdDivisions = GCDSeq.getGCDCount();
+
+  cout << "Selected Task 1 with k = " << k << "." << endl << endl;
+
+  cout << "First, the program computes Fibonacci(" << k << ")." << endl;
+  cout << "Fibonacci(" << k << ") = " << n << endl;
+  cout << "Fibonacci additions = " << fibCount << endl << endl;
+
+  cout << "Next, the program computes Fibonacci(" << k + 1 << ")." << endl;
+  cout << "Fibonacci(" << k + 1 << ") = " << m << endl << endl;
+
+  cout << "These consecutive Fibonacci values are used as the inputs for GCD." << endl;
+  cout << "m = Fibonacci(" << k + 1 << ") = " << m << endl;
+  cout << "n = Fibonacci(" << k << ") = " << n << endl << endl;
+
+  cout << "The program now computes GCD(m, n)." << endl;
+  cout << "GCD(" << m << ", " << n << ") = " << gcdResult << endl;
+  cout << "Modulo divisions = " << gcdDivisions << endl << endl;
 }
 
 void runTask2() {
