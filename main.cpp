@@ -24,8 +24,8 @@ void runTask1() {
   int m, n;
   int k;
 
-  cout << "Task 1: Fibonacci Sequence and GCD" << endl
-       << "Enter k: ";
+  cout << "Task 1: Fibonacci Sequence and GCD"  << endl
+        << "Enter k: ";
   cin >> k;
 
   n = FibonacciSeq.Fibonacci(k);
