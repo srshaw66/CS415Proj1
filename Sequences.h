@@ -7,7 +7,6 @@ class Sequences {
     int gcdCounter = 0;
 
     public:
-
     // Recursive Fibonacci 
     int Fibonacci(int k);
     int fibHelp(int k);

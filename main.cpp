@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Sequences.h"
 #include "Exponentiation.h"
 #include "Sorting.h"
@@ -15,14 +16,16 @@ Sequences GCDSeq;
 Sorting selSortAlg;
 Sorting inSortAlg;
 
+const string clearS = "\033[2J\033[H";
+
 
 
 void runTask1() {
   int m, n;
   int k;
 
-  cout << "Task 1: Fibonacci Sequence and GCD" << endl << endl;
-  cout << "Enter k: ";
+  cout << "Task 1: Fibonacci Sequence and GCD" << endl
+       << "Enter k: ";
   cin >> k;
 
   n = FibonacciSeq.Fibonacci(k);
@@ -35,56 +38,58 @@ void runTask1() {
 
   cout << "Selected Task 1 with k = " << k << "." << endl << endl;
 
-  cout << "First, the program computes Fibonacci(" << k << ")." << endl;
-  cout << "Fibonacci(" << k << ") = " << n << endl;
-  cout << "Fibonacci additions = " << fibCount << endl << endl;
+  cout << "First, the program computes Fibonacci(" << k << ")." << endl
+       << "Fibonacci(" << k << ") = " << n << endl << "Fibonacci additions = "
+       << fibCount << endl << endl;
 
-  cout << "Next, the program computes Fibonacci(" << k + 1 << ")." << endl;
-  cout << "Fibonacci(" << k + 1 << ") = " << m << endl << endl;
+  cout << "Next, the program computes Fibonacci(" << k + 1 << ")." << endl
+       << "Fibonacci(" << k + 1 << ") = " << m << endl << endl;
 
-  cout << "These consecutive Fibonacci values are used as the inputs for GCD." << endl;
-  cout << "m = Fibonacci(" << k + 1 << ") = " << m << endl;
-  cout << "n = Fibonacci(" << k << ") = " << n << endl << endl;
+  cout << "These consecutive Fibonacci values are used as the inputs for GCD."
+       << endl << "m = Fibonacci(" << k + 1 << ") = " << m << endl
+       << "n = Fibonacci(" << k << ") = " << n << endl << endl;
 
-  cout << "The program now computes GCD(m, n)." << endl;
-  cout << "GCD(" << m << ", " << n << ") = " << gcdResult << endl;
-  cout << "Modulo divisions = " << gcdDivisions << endl << endl;
+  cout << "The program now computes GCD(m, n)." << endl
+       << "GCD(" << m << ", " << n << ") = " << gcdResult << endl
+       << "Modulo divisions = " << gcdDivisions << endl << endl;
 }
 
 void runTask2() {
     int a;
     int n;
 
-    cout << "\nTask 2: Exponentiation\n";
-    cout << "Enter a: ";
+    cout << "Task 2: Exponentiation" << endl << "Enter a: ";
     cin >> a;
-    cout << "Enter n: ";
+    cout << endl << "Enter n: ";
     cin >> n;
 
-    cout << "\nSelected Task 2 with a = " << a << " and n = " << n << ".\n";
-    cout << "Task 2 execution will be implemented here.\n";
+    cout << "Selected Task 2 with a = " << a
+         << " and n = " << n << "." << endl << endl;
+
+    cout << "Task 2 execution will be implemented here." << endl << endl;
 }
 
 void runTask3() {
     int n;
 
-    cout << "\nTask 3: Sorting\n";
-    cout << "Enter the list size n: ";
+    cout << "Task 3: Sorting" << endl
+         << "Enter the list size n: ";
     cin >> n;
 
-    cout << "\nSelected Task 3 with list size n = " << n << ".\n";
-    cout << "Task 3 execution will be implemented here.\n";
+    cout << "Selected Task 3 with list size n = " << n << "." << endl
+         << endl;
+    cout << "Task 3 execution will be implemented here." << endl << endl;
 }
 
 void runUserTestingMode() {
     int taskSelection;
 
-    cout << "\nUser Testing Mode\n";
-    cout << "Choose a task:\n";
-    cout << "1. Fibonacci Sequence and GCD\n";
-    cout << "2. Exponentiation\n";
-    cout << "3. Sorting\n";
-    cout << "Enter your selection: ";
+    cout << "User Testing Mode" << endl
+         << "Choose a task:" << endl
+         << "1. Fibonacci Sequence and GCD" << endl
+         << "2. Exponentiation" << endl
+         << "3. Sorting" << endl
+         << "Enter your selection: ";
     cin >> taskSelection;
 
     switch (taskSelection) {
@@ -98,24 +103,25 @@ void runUserTestingMode() {
             runTask3();
             break;
         default:
-            cout << "\nInvalid task selection.\n";
+            cout << "Invalid task selection." << endl << endl;
             break;
     }
 }
 
 void runScatterPlotMode() {
-    cout << "\nSelected Scatter Plot Mode.\n";
-    cout << "Scatter plot execution will be implemented here.\n";
+    cout << "Selected Scatter Plot Mode." << endl
+         << "Scatter plot execution will be implemented here." << endl
+         << endl;
 }
 
 int main() {
     int modeSelection;
 
-    cout << "Algorithm Growth Rate Analysis\n";
-    cout << "Choose a mode:\n";
-    cout << "1. User Testing Mode\n";
-    cout << "2. Scatter Plot Mode\n";
-    cout << "Enter your selection: ";
+    cout << "Algorithm Growth Rate Analysis" << endl
+         << "Choose a mode:" << endl
+         << "1. User Testing Mode" << endl
+         << "2. Scatter Plot Mode" << endl
+         << "Enter your selection: ";
     cin >> modeSelection;
 
     switch (modeSelection) {
@@ -126,10 +132,10 @@ int main() {
             runScatterPlotMode();
             break;
         default:
-            cout << "\nInvalid mode selection.\n";
+            cout << "Invalid mode selection." << endl << endl;
             break;
     }
 
-    cout << "\nSelection complete.\n";
+    cout << "Selection complete." << endl << endl;
     return 0;
 }
