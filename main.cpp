@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cstdlib> // For random number generation
-#include <ctime> // For random number generation
+#include <cstdlib> 
+#include <ctime> 
 #include "Sequences.h"
 #include "Exponentiation.h"
 #include "Sorting.h"
@@ -11,9 +11,9 @@ using namespace std;
 Sequences FibonacciSeq;
 Sequences GCDSeq;
 
-// Exponentiations decByOneExp;
-// Exponentiations decByConstExp;
-// Exponentiations divConquerExp;
+Exponentiations decByOneExp;
+Exponentiations decByConstExp;
+Exponentiations divConquerExp;
 
 Sorting selSortAlg;
 Sorting inSortAlg;
@@ -27,31 +27,31 @@ void runTask1() {
   int k;
 
   cout << "Task 1: Fibonacci Sequence and GCD"  << endl
-        << "Enter k: ";
+        << "Enter # for k: ";
   cin >> k;
-
+  
+  //n = fib(k)
+  //m = fib(k + 1)
+  //gdcResult = GDC(m, n)
   n = FibonacciSeq.Fibonacci(k);
-  int fibCount = FibonacciSeq.getFibCount();
-
   m = FibonacciSeq.Fibonacci(k + 1);
-
   int gcdResult = GCDSeq.GCD(m, n);
+  
+  
   int gcdDivisions = GCDSeq.getGCDCount();
-
+  int fibCount = FibonacciSeq.getFibCount();
+  
+  
   cout << "Selected Task 1 with k = " << k << "." << endl << endl;
 
-  cout << "First, the program computes Fibonacci(" << k << ")." << endl
+  cout << "k: (" << k << ")." << endl
        << "Fibonacci(" << k << ") = " << n << endl << "Fibonacci additions = "
-       << fibCount << endl << endl;
-
-  cout << "Next, the program computes Fibonacci(" << k + 1 << ")." << endl
-       << "Fibonacci(" << k + 1 << ") = " << m << endl << endl;
-
-  cout << "These consecutive Fibonacci values are used as the inputs for GCD."
+       << fibCount << endl << endl << "Next, Fibonacci(" << k + 1 << ")." 
+       << endl << "Fibonacci(" << k + 1 << ") = " << m << endl << endl;
+  cout << "These Fibonacci values are the inputs for GCD."
        << endl << "m = Fibonacci(" << k + 1 << ") = " << m << endl
        << "n = Fibonacci(" << k << ") = " << n << endl << endl;
-
-  cout << "The program now computes GCD(m, n)." << endl
+       cout << "The program now computes GCD(m, n)." << endl
        << "GCD(" << m << ", " << n << ") = " << gcdResult << endl
        << "Modulo divisions = " << gcdDivisions << endl << endl;
 }
@@ -70,7 +70,19 @@ void runTask2() {
     cout << "Selected Task 2 with a = " << a
          << " and n = " << n << "." << endl << endl;
 
-    cout << "Task 2 execution will be implemented here." << endl << endl;
+    int dboResult = decByOneExp.decByOne(a, n);
+    int dboGro = decByOneExp.dboGetter();
+    int dbcResult = decByConstExp.decByConst(a,n);
+    int dbcGro = decByConstExp.dbcGetter();
+    int dcResult = divConquerExp.divConquer(a, n);
+    int dcGro = divConquerExp.dcGetter();
+    
+    cout << "Dec by one: " << dboResult << endl << "Basic Op Count: " 
+    << dboGro << endl;
+    cout << "Dec by con: " << dbcResult << endl << "Basic Op Count: " 
+    << dbcGro << endl;
+    cout << "Div conq: " << dcResult << endl << "Basic Op Count: " 
+    << dcGro << endl;
 }
 
 void runTask3() {
