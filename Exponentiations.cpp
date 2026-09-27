@@ -63,18 +63,22 @@ int Exponentiations::divConquer(int con, int num) {
 
 int Exponentiations::dcHelp(int con, int num) {
 	if (num == 0) { return 1;}
-    else if (num == 2) {return con;}
+    else if (num == 2) {
+    	dcCount++;
+    	return con * con;
+    }
 
     // if even
     if (num % 2 == 0) {
-        int evenResult = dcHelp(con, num / 2);
+    	int evenResult = dcHelp(con, num / 2);
+    	dcCount++;
         return evenResult * evenResult;
     }
 
     // if odd
     else {
         int oddResult = dcHelp(con, (num - 1) / 2);
-
+		dcCount = dcCount + 2; 
         return oddResult * oddResult * con;
     }
 }
