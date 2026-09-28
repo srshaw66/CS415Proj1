@@ -1,3 +1,5 @@
+Team Members: Seth Shaw, B. Axel Martinez
+
 Run make to setup exe endl
 Prompts user for choice of mode (User Testing or Scatter plot) 
 If (user Testing) -> Choose task and input vars 
