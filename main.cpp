@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <cstdlib> 
 #include <ctime> 
@@ -34,12 +35,12 @@ void runTask1() {
   //m = fib(k + 1)
   //gdcResult = GDC(m, n)
   n = FibonacciSeq.Fibonacci(k);
+  int fibCount = FibonacciSeq.getFibCount(); // snapshot BEFORE Fib(k+1) resets the counter
+
   m = FibonacciSeq.Fibonacci(k + 1);
   int gcdResult = GCDSeq.GCD(m, n);
-  
-  
+
   int gcdDivisions = GCDSeq.getGCDCount();
-  int fibCount = FibonacciSeq.getFibCount();
   
   
   cout << "Selected Task 1 with k = " << k << "." << endl << endl;
@@ -85,21 +86,48 @@ void runTask2() {
     << dcGro << endl;
 }
 
+void printArray(const int arr[], int n) {
+    for (int i = 0; i < n; ++i) {
+        cout << arr[i] << (i + 1 < n ? " " : "");
+    }
+    cout << endl;
+}
+
 void runTask3() {
     int n;
 
     cout << "Task 3: Sorting" << endl
-         << "Enter the list size n: ";
+         << "Enter the list size n (10-100, multiple of 10): ";
     cin >> n;
 
-    cout << "Selected Task 3 with list size n = " << n << "." << endl
-         << endl;
-    // Generate a random array of size n
-    int* arr = new int[n];
-    srand(static_cast<unsigned int>(time(nullptr))); // Seed for random number generation
-    for (int i = 0; i < n; ++i) {
-        arr[i] = rand() % 1000; // Random numbers between 0 and 999
+    if (n < 10 || n > 100 || n % 10 != 0) {
+        cout << "Invalid n. Please enter a value between 10 and 100 "
+             << "that is a multiple of 10." << endl << endl;
+        return;
     }
+
+    string filePath = "data/smallSet/data" + to_string(n) + ".txt";
+    ifstream inFile(filePath);
+    if (!inFile) {
+        cout << "Could not open " << filePath
+             << ". Make sure you run the program from the project root "
+             << "(the folder containing the 'data' directory)." << endl << endl;
+        return;
+    }
+
+    cout << "Selected Task 3 with list size n = " << n << "." << endl
+         << "Loaded data from " << filePath << "." << endl << endl;
+
+    // Load the array from file
+    int* arr = new int[n];
+    for (int i = 0; i < n; ++i) {
+        inFile >> arr[i];
+    }
+    inFile.close();
+
+    cout << "Input array: ";
+    printArray(arr, n);
+    cout << endl;
 
     // Separate copies of the array for each sorting algorithm
     int* selArr = new int[n];
@@ -112,12 +140,15 @@ void runTask3() {
     cout << "First, the program sorts the array using Selection Sort." << endl;
     selSortAlg.selectionSort(selArr, n);
     int selComparisons = selSortAlg.getComparisonCount();
-
-    cout << "Selection Sort comparisons: " << selComparisons << endl;
+    cout << "Selection Sort output: ";
+    printArray(selArr, n);
+    cout << "Selection Sort comparisons: " << selComparisons << endl << endl;
 
     cout << "Next, the program sorts the array using Insertion Sort." << endl;
     inSortAlg.insertionSort(insArr, n);
     int insComparisons = inSortAlg.getComparisonCount();
+    cout << "Insertion Sort output: ";
+    printArray(insArr, n);
     cout << "Insertion Sort comparisons: " << insComparisons << endl;
 
     // Comparison summary
